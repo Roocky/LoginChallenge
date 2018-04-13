@@ -1,0 +1,12 @@
+
+/*
+* Docs: https://github.com/css-modules/css-modules
+*/
+:local(.textField) {
+    color: gray;
+    background-color : #2b3038;
+    width: 10em; 
+    height: 2.5em; 
+    font-size: 1em;
+
+  }
