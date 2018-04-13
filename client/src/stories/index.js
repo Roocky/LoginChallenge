@@ -1,19 +1,12 @@
 import React from 'react';
-
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
-import { Button, Welcome } from '@storybook/react/demo';
+import TextField  from '../components/TextField/TextField.js';
+import WelcomePage  from '../containers/WelcomePage/WelcomePage.js'
 
-storiesOf('Welcome', module).add('to Storybook', () => <Welcome showApp={linkTo('Button')} />);
+const user = {name:"Roey Kudra"};
+storiesOf('TextField', module).add('with name', () =><TextField name="2"/>);
+storiesOf('WelcomePage', module).add('with name', () =><WelcomePage user={user}/>);
 
-storiesOf('Button', module)
-  .add('with text', () => <Button onClick={action('clicked')}>Hello Button</Button>)
-  .add('with some emoji', () => (
-    <Button onClick={action('clicked')}>
-      <span role="img" aria-label="so cool">
-        😀 😎 👍 💯
-      </span>
-    </Button>
-  ));
