@@ -1,5 +1,5 @@
 import React from 'react';
-
-const Title = (props) => <h1> {props.title} </h1>
+import styles from './Title.css'
+const Title = (props) => <h1 className={styles.title}> {props.title} </h1>
 
 export default Title;

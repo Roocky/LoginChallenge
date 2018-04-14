@@ -1,0 +1,19 @@
+:local(a:link) {
+    color: red;
+}
+
+/* visited link */
+:local(a:visited) {
+    color: green;
+}
+
+/* mouse over link */
+:local(a:hover) {
+    color: hotpink;
+    cursor: pointer;
+}
+
+/* selected link */
+:local(a:active) {
+    color: blue;
+}
