@@ -1,4 +1,6 @@
-import  {login, logout} from  './sessionStorage';
+import  {login, logout} from  './sessionStorage.js';
+import { setThumbNailLocation,
+         getThumbNailLocation } from './localStorage.js';
 
 const constants = {
     minWaitTimeInMS: 550,
@@ -17,6 +19,23 @@ const fLogin = async(name, password)=>{
     return {statusCode: 200};
 }
 
+
+const setLocForUser = async(name, location)=>{
+    //Add fake waiting for "server" for random time between range
+    const timeToWait = generateRandomTripTime();
+    await sleep(timeToWait);
+    await setThumbNailLocation(name, location);
+    return {statusCode: 200};
+}
+
+const getLocForUser = async(name)=>{
+    //Add fake waiting for "server" for random time between range
+    const timeToWait = generateRandomTripTime();
+    await sleep(timeToWait);
+    const location = await getThumbNailLocation(name);
+    return {statusCode: 200, location};
+}
+
 //remove the user from session
 const fLogout = ()=>{
     logout();
@@ -31,4 +50,4 @@ const sleep = (ms) => {
 
 //Not pure because of random and dependency on constants
 const generateRandomTripTime=()=>Math.random()*constants.waitTimeSTD + constants.minWaitTimeInMS;
-export {fLogin, fLogout, isError};
+export {fLogin, fLogout, isError,setLocForUser,getLocForUser};

@@ -1,3 +1,18 @@
-:local(a){
-color:rebeccapurple
+
+:local(dragImage){
+    cursor: pointer;
 }
+
+:local(dragNDropSection){
+
+}
+:local(.par){
+   color:wheat;
+
+
+}
+
+:local(wrapper){
+
+}
+

@@ -1,13 +1,27 @@
-import {getConnectedUserName} from './sessionStorage/sessionStorage.js';
+import {getConnectedUserName} from './sessionStorage.js'
 
-//For currently connected user (from session / param)
+
 const setThumbNailLocation = async(location, userName) => {
     if(!storageAvailable());
         return;
     //If not get from param try getting it from session
     const connectedUserName = !userName ? getConnectedUserName() : userName;
+    if(!connectedUserName)
+        return;
     localStorage.setItem(connectedUserName, location)
 }
+
+
+const getThumbNailLocation = async(userName) => {
+    if(!storageAvailable());
+        return;
+    //If not get from param try getting it from session
+    const connectedUserName = !userName ? getConnectedUserName() : userName;
+    if(!connectedUserName)
+        return;
+    return localStorage.getItem(connectedUserName)
+}
+
 
 //Can be place in more general file also - pure & not exported
 const storageAvailable=(type='localStorage')=> {
@@ -33,4 +47,5 @@ const storageAvailable=(type='localStorage')=> {
             storage.length !== 0;
     }
 }
-export { setThumbNailLocation }
+export { setThumbNailLocation,
+         getThumbNailLocation }

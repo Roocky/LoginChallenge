@@ -27,7 +27,7 @@ class Login extends React.Component {
   
     render() {
       return (
-        <form onSubmit={this.handleSubmit}>
+        <form  onSubmit={this.handleSubmit}>
             <Title title="Login"/>
             <TextField onChange={this.handleChange} name="name" placeholder="Username"/>
             <TextField onChange={this.handleChange} type="password" name="password" placeholder="Password"/>

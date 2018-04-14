@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Login from '../Login/Login.js';
 import WelcomePage from '../WelcomePage/WelcomePage.js';
-import {fLogin, fLogout, isError} from '../../Services/fakeAPI.js';
+import {fLogin, fLogout, isError, getLocForUser, setLocForUser} from '../../Services/fakeAPI.js';
 import { getConnectedUserName }  from '../../Services/sessionStorage.js'
+
 
 /**
  * Main page container shows 'WelcomePage'
@@ -19,7 +20,8 @@ export default class MainPage extends Component {
              You may see the welcome screen*/
             name: getConnectedUserName(),
             isWaitingForServer:false,
-            errorMessage:""
+            errorMessage:"",
+            position:0
         }
     }
     
@@ -36,13 +38,24 @@ export default class MainPage extends Component {
         fLogout();
         this.setState(prevState=>({name:""}));
     } 
+    componentDidMount=async()=>{
+        const {name} = this.state;
+        if(!name)
+            return;
+        const res = await getLocForUser(name);
+        if(!isError(res))
+            this.setState({position: res.position});
+    }
+
 
 	render() {
-        const { name, errorMessage, isWaitingForServer } = this.state;
-        return (!name ? <Login loginFunc={this.login}
+        const { name, errorMessage, isWaitingForServer, position } = this.state;
+        return <div className="main">
+{         !name &&  <Login loginFunc={this.login}
              isWaitingForServer={isWaitingForServer}
-              error={errorMessage}/> :
-             <WelcomePage user={{name}}
-             logoutFunc={this.logout}/>);
+              error={errorMessage}/> }
+{             name && <WelcomePage position={position} user={{name}}
+             logoutFunc={this.logout}/>}
+        </div>
 	}
 }

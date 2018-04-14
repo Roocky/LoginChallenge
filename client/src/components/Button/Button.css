@@ -5,11 +5,12 @@
 :local(.button) {
     color: white;
     background-color : #008CBA;
-    width: 13em; 
+    width: 12.7em; 
     height: 2.5em; 
     font-size: 1em;
     padding-left: 5px;
     margin: 10px;
+    border-radius: 4px;
   }
   :local(.button:hover) {
     color:oldlace;

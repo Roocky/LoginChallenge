@@ -1,19 +1,24 @@
-:local(a:link) {
+:local(.cLink:link) {
     color: red;
 }
 
 /* visited link */
-:local(a:visited) {
+:local(.cLink:visited) {
     color: green;
 }
 
 /* mouse over link */
-:local(a:hover) {
+:local(.cLink:hover) {
     color: hotpink;
     cursor: pointer;
 }
 
 /* selected link */
-:local(a:active) {
+:local(.cLink:active) {
     color: blue;
+}
+
+:local(.cLink){
+    color:rebeccapurple;
+    flex: 1 1 auto;
 }
