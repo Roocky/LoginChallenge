@@ -1,19 +1,18 @@
 //Store the user in session 
-const logout = async(user) => {
-    sessionStorage.setItem('userName', user.name);
-}
-
-//Remove user from session
-const login = async(user) => {
+const logout = () => {
     sessionStorage.removeItem('userName');
     sessionStorage.clear();//can also be the only line in this function
 }
 
-const getConnectedUserName =() => {
-    sessionStorage.getItem('userName', user.name);  
+//Remove user from session
+const login = async(name) => {
+    sessionStorage.setItem('userName', name);
+}
+
+const getConnectedUserName = () => {
+    return sessionStorage.getItem('userName');
 }
 
 export {getConnectedUserName};
-
 export {logout};
 export {login};
