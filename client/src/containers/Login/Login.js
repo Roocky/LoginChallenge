@@ -2,8 +2,6 @@ import React from 'react';
 import TextField from '../../components/TextField/TextField.js';
 import Title from '../../components/Title/Title.js';
 import Button from '../../components/Button/Button.js';
-import styles from './Login.css';
-
 
 //TODO: Create component for error message 
 //TODO: Create form wraper component component for css reuse
@@ -25,6 +23,7 @@ class Login extends React.Component {
         this.props.loginFunc(name, password); 
     }
   
+    //TODO: Create components for errors / messagess
     render() {
       return (
         <form  onSubmit={this.handleSubmit}>

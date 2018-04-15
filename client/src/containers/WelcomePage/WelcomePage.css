@@ -3,16 +3,7 @@
     cursor: pointer;
 }
 
-:local(dragNDropSection){
-
-}
 :local(.par){
    color:wheat;
-
-
-}
-
-:local(wrapper){
-
 }
 

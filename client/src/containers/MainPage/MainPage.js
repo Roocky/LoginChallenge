@@ -29,8 +29,9 @@ export default class MainPage extends Component {
     login = async(name, password) =>{
         this.setState(prevState=>({isWaitingForServer : true, errorMessage:""}));
         const res = await fLogin(name, password);
+        const location = (await getLocForUser(name)).location;
         if(!isError(res))
-            this.setState(prevState=>({isWaitingForServer:false, name:name, errorMessage:""}));
+            this.setState(prevState=>({isWaitingForServer:false, position: location, name:name, errorMessage:""}));
         else 
             this.setState(prevState=>({isWaitingForServer:false, errorMessage : res.error}));
     } 
@@ -38,23 +39,27 @@ export default class MainPage extends Component {
         fLogout();
         this.setState(prevState=>({name:""}));
     } 
-    componentDidMount=async()=>{
+    componentDidMount = async() => {
         const {name} = this.state;
         if(!name)
             return;
-        const res = await getLocForUser(name);
+        const res = (await getLocForUser(name));
         if(!isError(res))
-            this.setState({position: res.position});
+            this.setState({position: res.location});
     }
 
-
+    moveImage = (position) =>{
+        const {name} = this.state;
+        this.setState({position:position});
+        setLocForUser(name, position); 
+    }
 	render() {
         const { name, errorMessage, isWaitingForServer, position } = this.state;
         return <div className="main">
 {         !name &&  <Login loginFunc={this.login}
              isWaitingForServer={isWaitingForServer}
               error={errorMessage}/> }
-{             name && <WelcomePage position={position} user={{name}}
+{             name && <WelcomePage moveImage={this.moveImage} position={position} user={{name}}
              logoutFunc={this.logout}/>}
         </div>
 	}
