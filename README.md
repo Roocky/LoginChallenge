@@ -27,6 +27,13 @@ browser with localstorage support
 2. npm run tests
 3. npm run storybook or simply npm-start
 
+
+## Running the App
+
+1. cd /LoginChallenge
+2. npm start
+3. Open chrome with the url localhost:3000
+
 ## CSS
 
 I used css modules for local scoping off css classes.
