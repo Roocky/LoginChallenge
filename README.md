@@ -47,16 +47,19 @@ HTML5 Drag and Drop API
 
 
 ## Folder Structure
-.
-├── build                   # Compiled files (alternatively `dist`)
-├── docs                    # Documentation files (alternatively `doc`)
-├── src                     # Source files 
-  ├── components (functional components)
-  ├── containers (controlled components)
-  ├── Services (AP, storage menagment)
-  ├── stories (for testing components)
-├── App.js                    # The root component
-└── README.md
+
+```
+  ├── build    # Compiled files (alternatively `dist`)
+  ├── docs                    # Documentation files (alternatively `doc`)
+  ├── src                     # Source files 
+    ├── components (functional components)
+    ├── containers (controlled components)
+    ├── Services (AP, storage menagment)
+    ├── stories (for testing components)
+  ├── App.js                    # The root component
+  └── README.md
+  
+  ```
 
 
 
