@@ -52,13 +52,16 @@ HTML5 Drag and Drop API
 ### Medium priority
 
 Refactor the welcome page - by using smaller components for example error / messages
+
 Use react-router for future scale
 
 ### Low priority
 
 Consider using some ui lib like material-ui
-design the welcome page (UX-Wise) using css flex
-hard code some images urls  - userName mapping, so the app can show different picture for each user
+
+Design the welcome page (UX-Wise) using css flex
+
+Hard code some images urls  - userName mapping, so the app can show different picture for each user
 
 ## Folder Structure
 
