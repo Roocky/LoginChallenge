@@ -37,5 +37,31 @@ https://css-tricks.com/css-modules-part-1-need/
 react-scripts (create-react-app)
 
 
+## Stuff I Used
+Story Book
+Create react app
+Local Storage
+Session Storage
+Css Modules
+HTML5 Drag and Drop API
+
+
+## Folder Structure
+.
+├── build                   # Compiled files (alternatively `dist`)
+├── docs                    # Documentation files (alternatively `doc`)
+├── src                     # Source files 
+  ├── components (functional components)
+  ├── containers (controlled components)
+  ├── Services (AP, storage menagment)
+  ├── stories (for testing components)
+├── App.js                    # The root component
+└── README.md
+
+
+
+
+
+
 
 
